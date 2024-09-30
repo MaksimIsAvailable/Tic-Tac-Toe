@@ -55,8 +55,8 @@
 				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
 				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
 				B5552B752CA99F63008FA7B2 /* ViewController.swift */,
-				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 				B5552B7F2CA99F66008FA7B2 /* Info.plist */,
+				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 			);
 			path = "Tic-Tac-Toe";
 			sourceTree = "<group>";
