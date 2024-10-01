@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		317B06BC2CAB3E09003A4B85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317B06BB2CAB3E09003A4B85 /* GameViewController.swift */; };
 		B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B712CA99F63008FA7B2 /* AppDelegate.swift */; };
 		B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */; };
 		B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B752CA99F63008FA7B2 /* ViewController.swift */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		317B06BB2CAB3E09003A4B85 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B5552B6E2CA99F63008FA7B2 /* Tic-Tac-Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5552B712CA99F63008FA7B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
 				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
 				B5552B752CA99F63008FA7B2 /* ViewController.swift */,
+				317B06BB2CAB3E09003A4B85 /* GameViewController.swift */,
 				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 				B5552B7F2CA99F66008FA7B2 /* Info.plist */,
 			);
@@ -130,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317B06BC2CAB3E09003A4B85 /* GameViewController.swift in Sources */,
 				B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */,
 				B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */,
 				B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */,
