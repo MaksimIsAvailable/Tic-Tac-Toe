@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B712CA99F63008FA7B2 /* AppDelegate.swift */; };
 		B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */; };
-		B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B752CA99F63008FA7B2 /* ViewController.swift */; };
 		B5552B7B2CA99F66008FA7B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */; };
+		F4E7707B2CADBF590045D237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E7707A2CADBF590045D237 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B5552B6E2CA99F63008FA7B2 /* Tic-Tac-Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5552B712CA99F63008FA7B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5552B752CA99F63008FA7B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5552B7F2CA99F66008FA7B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4E7707A2CADBF590045D237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			children = (
 				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
 				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
-				B5552B752CA99F63008FA7B2 /* ViewController.swift */,
+				F4E7707A2CADBF590045D237 /* ViewController.swift */,
 				B5552B7F2CA99F66008FA7B2 /* Info.plist */,
 				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 			);
@@ -130,8 +130,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */,
 				B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */,
+				F4E7707B2CADBF590045D237 /* ViewController.swift in Sources */,
 				B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +265,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 482CG3QZ6U;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tic-Tac-Toe/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -297,7 +297,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 482CG3QZ6U;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tic-Tac-Toe/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

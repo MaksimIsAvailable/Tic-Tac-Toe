@@ -3,6 +3,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    
     // MARK: - UI Elements
     let backgroundViewColor: UIView = {
         let background = UIView()
@@ -14,7 +16,9 @@ class ViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "You Lose!"
-        label.font = UIFont.boldSystemFont(ofSize: 44)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.adjustsFontSizeToFitWidth = true
+        label.sizeToFit()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +32,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    let actionButton: UIButton = {
+    let buttonPlayAgain: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 132/255, green: 128/255, blue: 212/255, alpha: 1)
         
@@ -40,7 +44,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    let actionButtonSecond: UIButton = {
+    let buttonBack: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.white
         
@@ -55,19 +59,45 @@ class ViewController: UIViewController {
         return button
     }()
     
+//MARK: - ImageToResult
+    
+    var imagesForResults: [UIImage] = []
+    
+    func addImageResults () {
+    if let draw = UIImage(named: "drawIcon"),
+       let lose = UIImage(named: "loseIcon"),
+       let win = UIImage(named: "winIcon") {
+        imagesForResults = [draw, lose, win] }
+    else {print("Одно или несколько изображений не найдены.")}
+    }
+//
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addImageResults()
     }
+    
+  
     
     // MARK: - UI Setup
     private func setupUI() {
+        
+//        let stackView = UIStackView(arrangedSubviews: [titleLabel, imageView])
+//        stackView.axis = .vertical
+//        stackView.spacing = 20
+//
+//
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        view.addSubview(stackView)
+        
+        
         view.addSubview(backgroundViewColor)
         view.addSubview(titleLabel)
         view.addSubview(imageView)
-        view.addSubview(actionButton)
-        view.addSubview(actionButtonSecond)
+        view.addSubview(buttonPlayAgain)
+        view.addSubview(buttonBack)
         
         // Constraints
         NSLayoutConstraint.activate([
@@ -75,38 +105,35 @@ class ViewController: UIViewController {
             backgroundViewColor.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backgroundViewColor.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundViewColor.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 204),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 81),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
+            
+            
+            
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 160),
+            titleLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            
+            
             imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 228),
-            imageView.heightAnchor.constraint(equalToConstant: 272)
-        ])
+            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 74),
+            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -73),
+            
+            
+            buttonPlayAgain.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 160),
+            buttonPlayAgain.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            buttonPlayAgain.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -21),
+            buttonPlayAgain.heightAnchor.constraint(equalToConstant: 72),
+            
+            
+            buttonBack.topAnchor.constraint(equalTo: buttonPlayAgain.bottomAnchor, constant: 13),
+            buttonBack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            buttonBack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -21),
+            buttonBack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -18),
+            buttonBack.heightAnchor.constraint(equalToConstant: 72) ])
         
-        NSLayoutConstraint.activate([
-            actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 636),
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
-            actionButton.widthAnchor.constraint(equalToConstant: 348),
-            actionButton.heightAnchor.constraint(equalToConstant: 72)
-        ])
-        
-        NSLayoutConstraint.activate([
-            actionButtonSecond.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 20),
-            actionButtonSecond.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
-            actionButtonSecond.widthAnchor.constraint(equalToConstant: 348),
-            actionButtonSecond.heightAnchor.constraint(equalToConstant: 72)
-        ])
     }
     // MARK: - Button Action
     @objc private func buttonTapped() {
         print("Кнопка нажата!")
     }
 }
+
 
