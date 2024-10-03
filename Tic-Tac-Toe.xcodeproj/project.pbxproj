@@ -140,6 +140,7 @@
 				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
 			);
 			path = PlayInfo;
+		};
 		B52AD31F2CAB1E0B004F870B /* SelectGame */ = {
 			isa = PBXGroup;
 			children = (
