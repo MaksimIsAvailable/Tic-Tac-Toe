@@ -42,7 +42,7 @@ class PlayInfoViewController: UIViewController {
                     RectangleView(
                         frame: CGRect.zero,
                         textForMainLabel: text
-                    )
+                    ),
                 ],
                 axis: .horizontal,
                 spacing: 20,
