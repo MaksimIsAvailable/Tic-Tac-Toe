@@ -89,6 +89,7 @@
 		6E52FC312CAD49E40014D299 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				317B06BB2CAB3E09003A4B85 /* GameViewController.swift */,
 				6E09D38D2CAED902008930A4 /* PlayInfo */,
 				6E09D3882CAEBB2B008930A4 /* DesignSelection */,
 			);
@@ -163,7 +164,6 @@
 				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
 				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
 				B5552B752CA99F63008FA7B2 /* ViewController.swift */,
-				317B06BB2CAB3E09003A4B85 /* GameViewController.swift */,
 				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 				B5552B7F2CA99F66008FA7B2 /* Info.plist */,
 			);
