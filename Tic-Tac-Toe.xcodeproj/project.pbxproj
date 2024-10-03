@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		317B06BC2CAB3E09003A4B85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317B06BB2CAB3E09003A4B85 /* GameViewController.swift */; };
+		6E09D38A2CAEBB73008930A4 /* DesignSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */; };
+		6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */; };
+		6E52FC372CAD4A470014D299 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */; };
+		6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */; };
+		6E52FC3C2CAD4BDE0014D299 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */; };
+		6E52FC3F2CAD4C0B0014D299 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */; };
 		B52AD31E2CAB1DF6004F870B /* SelectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */; };
 		B52AD3242CAB21DE004F870B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AD3232CAB21DE004F870B /* Constants.swift */; };
 		B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B712CA99F63008FA7B2 /* AppDelegate.swift */; };
@@ -17,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		317B06BB2CAB3E09003A4B85 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSelectionView.swift; sourceTree = "<group>"; };
+		6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameViewController.swift; sourceTree = "<group>"; };
+		6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayInfoViewController.swift; sourceTree = "<group>"; };
+		6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGameViewController.swift; sourceTree = "<group>"; };
 		B52AD3232CAB21DE004F870B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5552B6E2CA99F63008FA7B2 /* Tic-Tac-Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +53,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E09D3882CAEBB2B008930A4 /* DesignSelection */ = {
+			isa = PBXGroup;
+			children = (
+				6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */,
+			);
+			path = DesignSelection;
+			sourceTree = "<group>";
+		};
+		6E09D38D2CAED902008930A4 /* PlayInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */,
+				6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */,
+			);
+			path = PlayInfo;
+			sourceTree = "<group>";
+		};
+		6E09D38E2CAED917008930A4 /* SettingsGame */ = {
+			isa = PBXGroup;
+			children = (
+				6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */,
+			);
+			path = SettingsGame;
+			sourceTree = "<group>";
+		};
+		6E52FC2F2CAD49CE0014D299 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6E52FC302CAD49DA0014D299 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E52FC312CAD49E40014D299 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E09D38D2CAED902008930A4 /* PlayInfo */,
+				6E09D3882CAEBB2B008930A4 /* DesignSelection */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E52FC322CAD49ED0014D299 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E09D38E2CAED917008930A4 /* SettingsGame */,
+				6E52FC3A2CAD4BA50014D299 /* PlayInfo */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E52FC332CAD49FC0014D299 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6E52FC342CAD4A060014D299 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6E52FC342CAD4A060014D299 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		6E52FC352CAD4A230014D299 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6E52FC3A2CAD4BA50014D299 /* PlayInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
+			);
+			path = PlayInfo;
 		B52AD31F2CAB1E0B004F870B /* SelectGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,9 +174,16 @@
 		B5552B702CA99F63008FA7B2 /* Tic-Tac-Toe */ = {
 			isa = PBXGroup;
 			children = (
+				6E52FC2F2CAD49CE0014D299 /* Application */,
+				6E52FC302CAD49DA0014D299 /* Model */,
+				6E52FC312CAD49E40014D299 /* View */,
+				6E52FC322CAD49ED0014D299 /* Controller */,
+				6E52FC332CAD49FC0014D299 /* Extensions */,
+				6E52FC352CAD4A230014D299 /* Resources */,
 				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
 				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
 				B5552B752CA99F63008FA7B2 /* ViewController.swift */,
+				317B06BB2CAB3E09003A4B85 /* GameViewController.swift */,
 				B52AD31F2CAB1E0B004F870B /* SelectGame */,
 				B5E56F762CAC6C6400A2C6ED /* SettingGame */,
 				B52AD3222CAB21AA004F870B /* Helpres */,
@@ -165,8 +272,15 @@
 			files = (
 				B52AD3242CAB21DE004F870B /* Constants.swift in Sources */,
 				B5E56F752CAC6C5700A2C6ED /* SettingGameViewcontroller.swift in Sources */,
+				6E09D38A2CAEBB73008930A4 /* DesignSelectionView.swift in Sources */,
+				317B06BC2CAB3E09003A4B85 /* GameViewController.swift in Sources */,
+				6E52FC3C2CAD4BDE0014D299 /* RoundView.swift in Sources */,
 				B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */,
+				6E52FC372CAD4A470014D299 /* UIStackView+Extensions.swift in Sources */,
 				B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */,
+				6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */,
+				6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */,
+				6E52FC3F2CAD4C0B0014D299 /* RectangleView.swift in Sources */,
 				B52AD31E2CAB1DF6004F870B /* SelectGameViewController.swift in Sources */,
 				B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */,
 			);

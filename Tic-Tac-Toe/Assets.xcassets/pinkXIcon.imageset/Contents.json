@@ -1,7 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "pinkXIcon.png",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "Xskin1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
