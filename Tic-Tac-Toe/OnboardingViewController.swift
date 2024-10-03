@@ -1,63 +1,64 @@
 //
-//  ViewController.swift
+//  OnbordingViewController.swift
 //  Tic-Tac-Toe
 //
-//  Created by Maksim on 29.09.2024.
+//  Created by Александр Гуркин on 03.10.2024.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class OnboardingViewController: UIViewController {
     
     //    MARK: - UI Elements
-    var backgroundViewColor: UIView = {
-        let background = UIView()
-        background.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        background.translatesAutoresizingMaskIntoConstraints = false
-        return background
+    
+    private lazy var backgroundViewColor: UIView = {
+        let element = UIView()
+        element.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
     }()
     
-    let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
-        imageView.image = UIImage(named: "onboardingXOIcon")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    private lazy var logoImageView: UIImageView = {
+        let element = UIImageView()
+        element.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+        element.image = UIImage(named: "onboardingXOIcon")
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
     }()
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "TIC-TAC-TOE"
-        label.textColor = UIColor(red: 0.137, green: 0.161, blue: 0.275, alpha: 1)
-        label.font = UIFont(name: "SFProDisplay-Bold", size: 32)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var titleLabel: UILabel = {
+        let element = UILabel()
+        element.text = "TIC-TAC-TOE"
+        element.textColor = UIColor(red: 0.137, green: 0.161, blue: 0.275, alpha: 1)
+        element.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        element.textAlignment = .center
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
     }()
     
     private let rulesButton =  UIButton(name: "rulesIcon")
     private let settingButton =  UIButton(name: "settingIcon")
     
-    let actionButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor(red: 132/255, green: 128/255, blue: 212/255, alpha: 1)
-        button.titleLabel?.frame = CGRect(x: 0, y: 0, width: 83, height: 24)
-        button.tintColor = .white
-        button.setTitle("Let's play", for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProDisplay-Semibold", size: 20)
-        button.titleLabel?.textAlignment = .center
-        button.layer.cornerRadius = 30
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        return button
+    private lazy var actionButton: UIButton = {
+        let element = UIButton()
+        element.backgroundColor = UIColor(red: 132/255, green: 128/255, blue: 212/255, alpha: 1)
+//      element.titleLabel?.frame = CGRect(x: 0, y: 0, width: 83, height: 24)
+        element.tintColor = .white
+        element.setTitle("Let's play", for: .normal)
+        element.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        element.titleLabel?.textAlignment = .center
+        element.layer.cornerRadius = 30
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
     }()
+    
     //     MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setConstrains()
     }
+    
     //     MARK: - UI Setup
     private func setView() {
         view.addSubview(backgroundViewColor)
@@ -69,6 +70,8 @@ class ViewController: UIViewController {
         
         rulesButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         settingButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        actionButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
     }
     
     private func setConstrains() {
@@ -102,10 +105,10 @@ class ViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.widthAnchor.constraint(equalToConstant: 196),
-            titleLabel.heightAnchor.constraint(equalToConstant: 38),
+//            titleLabel.widthAnchor.constraint(equalToConstant: 196),
+//            titleLabel.heightAnchor.constraint(equalToConstant: 38),
             titleLabel.centerXAnchor.constraint(equalTo: logoImageView.centerXAnchor, constant: -1),
-            titleLabel.bottomAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 31)
+            titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 31)
         ])
         
         NSLayoutConstraint.activate([
@@ -116,6 +119,7 @@ class ViewController: UIViewController {
         ])
         
     }
+    
     // MARK: - Button Action
     @objc private func buttonTapped() {
         print("Кнопка нажата!")
