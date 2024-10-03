@@ -14,10 +14,13 @@
 		6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */; };
 		6E52FC3C2CAD4BDE0014D299 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */; };
 		6E52FC3F2CAD4C0B0014D299 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */; };
+		B52AD31E2CAB1DF6004F870B /* SelectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */; };
+		B52AD3242CAB21DE004F870B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AD3232CAB21DE004F870B /* Constants.swift */; };
 		B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B712CA99F63008FA7B2 /* AppDelegate.swift */; };
 		B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */; };
 		B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5552B752CA99F63008FA7B2 /* ViewController.swift */; };
 		B5552B7B2CA99F66008FA7B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */; };
+		B5E56F752CAC6C5700A2C6ED /* SettingGameViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E56F742CAC6C5600A2C6ED /* SettingGameViewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +31,15 @@
 		6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayInfoViewController.swift; sourceTree = "<group>"; };
 		6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGameViewController.swift; sourceTree = "<group>"; };
+		B52AD3232CAB21DE004F870B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5552B6E2CA99F63008FA7B2 /* Tic-Tac-Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5552B712CA99F63008FA7B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B5552B752CA99F63008FA7B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5552B7F2CA99F66008FA7B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5E56F742CAC6C5600A2C6ED /* SettingGameViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGameViewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,20 @@
 				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
 			);
 			path = PlayInfo;
+		B52AD31F2CAB1E0B004F870B /* SelectGame */ = {
+			isa = PBXGroup;
+			children = (
+				B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */,
+			);
+			path = SelectGame;
+			sourceTree = "<group>";
+		};
+		B52AD3222CAB21AA004F870B /* Helpres */ = {
+			isa = PBXGroup;
+			children = (
+				B52AD3232CAB21DE004F870B /* Constants.swift */,
+			);
+			path = Helpres;
 			sourceTree = "<group>";
 		};
 		B5552B652CA99F63008FA7B2 = {
@@ -164,10 +184,22 @@
 				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
 				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
 				B5552B752CA99F63008FA7B2 /* ViewController.swift */,
+				317B06BB2CAB3E09003A4B85 /* GameViewController.swift */,
+				B52AD31F2CAB1E0B004F870B /* SelectGame */,
+				B5E56F762CAC6C6400A2C6ED /* SettingGame */,
+				B52AD3222CAB21AA004F870B /* Helpres */,
 				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 				B5552B7F2CA99F66008FA7B2 /* Info.plist */,
 			);
 			path = "Tic-Tac-Toe";
+			sourceTree = "<group>";
+		};
+		B5E56F762CAC6C6400A2C6ED /* SettingGame */ = {
+			isa = PBXGroup;
+			children = (
+				B5E56F742CAC6C5600A2C6ED /* SettingGameViewcontroller.swift */,
+			);
+			path = SettingGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52AD3242CAB21DE004F870B /* Constants.swift in Sources */,
+				B5E56F752CAC6C5700A2C6ED /* SettingGameViewcontroller.swift in Sources */,
 				6E09D38A2CAEBB73008930A4 /* DesignSelectionView.swift in Sources */,
 				317B06BC2CAB3E09003A4B85 /* GameViewController.swift in Sources */,
 				6E52FC3C2CAD4BDE0014D299 /* RoundView.swift in Sources */,
@@ -248,6 +282,7 @@
 				6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */,
 				6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */,
 				6E52FC3F2CAD4C0B0014D299 /* RectangleView.swift in Sources */,
+				B52AD31E2CAB1DF6004F870B /* SelectGameViewController.swift in Sources */,
 				B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
