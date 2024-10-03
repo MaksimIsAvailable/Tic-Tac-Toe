@@ -95,6 +95,7 @@
 		6E52FC312CAD49E40014D299 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				317B06BB2CAB3E09003A4B85 /* GameViewController.swift */,
 				6E09D38D2CAED902008930A4 /* PlayInfo */,
 				6E09D3882CAEBB2B008930A4 /* DesignSelection */,
 			);
