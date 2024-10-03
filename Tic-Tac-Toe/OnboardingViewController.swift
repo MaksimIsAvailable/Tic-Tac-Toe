@@ -42,7 +42,6 @@ class OnboardingViewController: UIViewController {
     private lazy var actionButton: UIButton = {
         let element = UIButton()
         element.backgroundColor = UIColor(red: 132/255, green: 128/255, blue: 212/255, alpha: 1)
-//      element.titleLabel?.frame = CGRect(x: 0, y: 0, width: 83, height: 24)
         element.tintColor = .white
         element.setTitle("Let's play", for: .normal)
         element.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
@@ -80,44 +79,34 @@ class OnboardingViewController: UIViewController {
             backgroundViewColor.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundViewColor.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backgroundViewColor.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundViewColor.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
+            backgroundViewColor.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+    
             rulesButton.widthAnchor.constraint(equalToConstant: 36),
             rulesButton.heightAnchor.constraint(equalToConstant: 36),
-            rulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
-            rulesButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 70)
-        ])
+            rulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  20),
+            rulesButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
         
-        NSLayoutConstraint.activate([
             settingButton.widthAnchor.constraint(equalToConstant: 36),
             settingButton.heightAnchor.constraint(equalToConstant: 36),
-            settingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -21),
-            settingButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 70)
-        ])
-        
-        NSLayoutConstraint.activate([
+            settingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            settingButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            
             logoImageView.widthAnchor.constraint(equalToConstant: 270.07),
             logoImageView.heightAnchor.constraint(equalToConstant: 135),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.03),
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 278)
-        ])
-        
-        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 278),
+            
 //            titleLabel.widthAnchor.constraint(equalToConstant: 196),
 //            titleLabel.heightAnchor.constraint(equalToConstant: 38),
             titleLabel.centerXAnchor.constraint(equalTo: logoImageView.centerXAnchor, constant: -1),
-            titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 31)
-        ])
-        
-        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 31),
+            
             actionButton.widthAnchor.constraint(equalToConstant: 348),
             actionButton.heightAnchor.constraint(equalToConstant: 72),
             actionButton.centerXAnchor.constraint(equalTo: logoImageView.centerXAnchor, constant: 0),
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80)
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
+            
         ])
-        
     }
     
     // MARK: - Button Action
