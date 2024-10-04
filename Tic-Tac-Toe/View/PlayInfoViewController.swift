@@ -8,6 +8,23 @@
 import UIKit
 
 class PlayInfoViewController: UIViewController {
+    
+    private lazy var backButton: UIButton = {
+        let element = UIButton()
+        element.setImage(K.backIcon, for: .normal)
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+        let customBackButton = UIBarButtonItem(customView: element)
+        navigationItem.leftBarButtonItem = customBackButton
+        
+        return element
+    }()
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private let mainScrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = UIColor(named: "backgroundColor")
@@ -67,6 +84,12 @@ class PlayInfoViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "backgroundColor")
+        self.title = "How to play"
+        if let customFont = UIFont(name: "SFProDisplay-Bold", size: 24) {
+            navigationController?.navigationBar.titleTextAttributes = [
+                NSAttributedString.Key.font: customFont
+            ]
+        }
         
         setupViews()
         setConstraints()
@@ -91,6 +114,9 @@ extension PlayInfoViewController {
         let fg = mainScrollView.frameLayoutGuide
         
         NSLayoutConstraint.activate([
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 22),
+            
             mainScrollView.leadingAnchor.constraint(equalTo: g.leadingAnchor),
             mainScrollView.topAnchor.constraint(equalTo: g.topAnchor, constant: 42),
             mainScrollView.trailingAnchor.constraint(equalTo: g.trailingAnchor),
