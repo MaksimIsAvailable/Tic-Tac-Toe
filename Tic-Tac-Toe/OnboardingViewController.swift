@@ -96,8 +96,6 @@ class OnboardingViewController: UIViewController {
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.03),
             logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 278),
             
-//            titleLabel.widthAnchor.constraint(equalToConstant: 196),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 38),
             titleLabel.centerXAnchor.constraint(equalTo: logoImageView.centerXAnchor, constant: -1),
             titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 31),
             

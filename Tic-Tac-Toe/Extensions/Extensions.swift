@@ -7,17 +7,6 @@
 
 import UIKit
 
-//extension UIStackView {
-//    convenience init(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution, subViews: [UIView]) {
-//        self.init(arrangedSubviews: subViews)
-//        
-//        self.axis = axis
-//        self.distribution = distribution
-////        self.spacing = 0
-//        self.translatesAutoresizingMaskIntoConstraints = false
-//    }
-//}
-
 extension UIButton {
     convenience init(name: String) {
         self.init()
