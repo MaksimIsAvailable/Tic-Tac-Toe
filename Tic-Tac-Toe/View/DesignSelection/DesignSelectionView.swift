@@ -40,7 +40,7 @@ class DesignSelectionView: UIView {
 //        button.titleLabel?.font = .robotoBold20()
 //        button.tintColor = .specialGreen
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(DesignSelectionView.self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
     
