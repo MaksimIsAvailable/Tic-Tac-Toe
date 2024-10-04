@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		317B06BC2CAB3E09003A4B85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317B06BB2CAB3E09003A4B85 /* GameViewController.swift */; };
 		6E09D38A2CAEBB73008930A4 /* DesignSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */; };
-		6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */; };
 		6E52FC372CAD4A470014D299 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */; };
 		6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */; };
 		6E52FC3C2CAD4BDE0014D299 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */; };
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		317B06BB2CAB3E09003A4B85 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSelectionView.swift; sourceTree = "<group>"; };
-		6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameViewController.swift; sourceTree = "<group>"; };
 		6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayInfoViewController.swift; sourceTree = "<group>"; };
 		6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
@@ -70,14 +68,6 @@
 			path = PlayInfo;
 			sourceTree = "<group>";
 		};
-		6E09D38E2CAED917008930A4 /* SettingsGame */ = {
-			isa = PBXGroup;
-			children = (
-				6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */,
-			);
-			path = SettingsGame;
-			sourceTree = "<group>";
-		};
 		6E52FC2F2CAD49CE0014D299 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +94,6 @@
 		6E52FC322CAD49ED0014D299 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6E09D38E2CAED917008930A4 /* SettingsGame */,
 				6E52FC3A2CAD4BA50014D299 /* PlayInfo */,
 			);
 			path = Controller;
@@ -138,7 +127,9 @@
 			children = (
 				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
 			);
-			path = PlayInfo;
+			name = PlayInfo;
+			path = "Tic-Tac-Toe/Controller/PlayInfo";
+			sourceTree = SOURCE_ROOT;
 		};
 		B52AD31F2CAB1E0B004F870B /* SelectGame */ = {
 			isa = PBXGroup;
@@ -279,7 +270,6 @@
 				B5552B762CA99F63008FA7B2 /* ViewController.swift in Sources */,
 				6E52FC372CAD4A470014D299 /* UIStackView+Extensions.swift in Sources */,
 				B5552B722CA99F63008FA7B2 /* AppDelegate.swift in Sources */,
-				6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */,
 				6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */,
 				6E52FC3F2CAD4C0B0014D299 /* RectangleView.swift in Sources */,
 				B52AD31E2CAB1DF6004F870B /* SelectGameViewController.swift in Sources */,
