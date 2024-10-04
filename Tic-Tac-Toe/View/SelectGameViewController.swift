@@ -99,14 +99,20 @@ final class SelectGameViewController: UIViewController {
     
     //MARK: - Actions
     @objc private func getSettingButtonTapped() {
+        let nextViewController = SettingGameViewcontroller()
+        navigationController?.pushViewController(nextViewController, animated: true)
         print("Setting Button Tapped")
     }
     
     @objc private func getSinglePlayerTapped() {
+        let nextViewController = GameViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
         print("Single Player Tapped")
     }
     
     @objc private func getTwoPlayersTapped() {
+        let nextViewController = GameViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
         print("Two Players Tapped")
     }
 }
