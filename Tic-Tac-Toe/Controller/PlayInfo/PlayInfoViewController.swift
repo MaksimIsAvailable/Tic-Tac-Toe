@@ -22,6 +22,14 @@ class PlayInfoViewController: UIViewController {
         return v
     }()
     
+    private let verticalStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.spacing = 10
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
     private let horisontalStackViews: [UIStackView] = {
         var stackViews: [UIStackView] = []
         let textsForMainLabel = [
@@ -59,7 +67,7 @@ class PlayInfoViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "backgroundColor")
-       
+        
         setupViews()
         setConstraints()
     }
@@ -67,62 +75,37 @@ class PlayInfoViewController: UIViewController {
     private func setupViews() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(contentView)
+        contentView.addSubview(verticalStackView)
         
-        view.addSubview(horisontalStackViews[0])
-        view.addSubview(horisontalStackViews[1])
-        view.addSubview(horisontalStackViews[2])
-        view.addSubview(horisontalStackViews[3])
-        
-        horisontalStackViews[0].translatesAutoresizingMaskIntoConstraints = false
-        horisontalStackViews[1].translatesAutoresizingMaskIntoConstraints = false
-        horisontalStackViews[2].translatesAutoresizingMaskIntoConstraints = false
-        horisontalStackViews[3].translatesAutoresizingMaskIntoConstraints = false
-        
-        let hConst = contentView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor)
-        hConst.isActive = true
-        hConst.priority = UILayoutPriority(500)
+        for v in horisontalStackViews {
+            verticalStackView.addArrangedSubview(v)
+        }
     }
 }
 
 extension PlayInfoViewController {
     private func setConstraints() {
+        
+        let g = view.safeAreaLayoutGuide
+        let cg = mainScrollView.contentLayoutGuide
+        let fg = mainScrollView.frameLayoutGuide
+        
         NSLayoutConstraint.activate([
-            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
-            mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-       
-            contentView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
-            contentView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
-            contentView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
-            //            contentView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor, multiplier: 2),
-  
-            horisontalStackViews[0].leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 21),
-            horisontalStackViews[0].topAnchor.constraint(equalTo: contentView.topAnchor),
-            horisontalStackViews[0].trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
-            //            horisontalStackViews[0].widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            //            horisontalStackViews[0].heightAnchor.constraint(equalToConstant: 75)
-     
-            horisontalStackViews[1].leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 21),
-            horisontalStackViews[1].topAnchor.constraint(equalTo: horisontalStackViews[0].bottomAnchor, constant: 10),
-            horisontalStackViews[1].trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
-            //            horisontalStackViews[1].widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            //            horisontalStackViews[1].heightAnchor.constraint(equalToConstant: 192)
-
-            horisontalStackViews[2].leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 21),
-            horisontalStackViews[2].topAnchor.constraint(equalTo: horisontalStackViews[1].bottomAnchor, constant: 10),
-            horisontalStackViews[2].trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
-            //            horisontalStackViews[2].widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            //            horisontalStackViews[2].heightAnchor.constraint(equalToConstant: 171)
-
-            horisontalStackViews[3].leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 21),
-            horisontalStackViews[3].topAnchor.constraint(equalTo: horisontalStackViews[2].bottomAnchor, constant: 10),
-            horisontalStackViews[3].trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
-            horisontalStackViews[3].bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            //            horisontalStackViews[3].widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            //            horisontalStackViews[3].heightAnchor.constraint(equalToConstant: 255)
+            mainScrollView.leadingAnchor.constraint(equalTo: g.leadingAnchor),
+            mainScrollView.topAnchor.constraint(equalTo: g.topAnchor, constant: 42),
+            mainScrollView.trailingAnchor.constraint(equalTo: g.trailingAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: g.bottomAnchor),
+            
+            contentView.leadingAnchor.constraint(equalTo: cg.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: cg.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: cg.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: cg.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: fg.widthAnchor),
+         
+            verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 21),
+            verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
 }
