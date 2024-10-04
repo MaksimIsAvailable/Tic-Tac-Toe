@@ -51,38 +51,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E09D3882CAEBB2B008930A4 /* DesignSelection */ = {
-			isa = PBXGroup;
-			children = (
-				6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */,
-			);
-			path = DesignSelection;
-			sourceTree = "<group>";
-		};
-		6E09D38D2CAED902008930A4 /* PlayInfo */ = {
-			isa = PBXGroup;
-			children = (
-				6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */,
-				6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */,
-			);
-			path = PlayInfo;
-			sourceTree = "<group>";
-		};
-		6E09D38E2CAED917008930A4 /* SettingsGame */ = {
-			isa = PBXGroup;
-			children = (
-				6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */,
-			);
-			path = SettingsGame;
-			sourceTree = "<group>";
-		};
-		6E52FC2F2CAD49CE0014D299 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		6E52FC302CAD49DA0014D299 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,8 +61,12 @@
 		6E52FC312CAD49E40014D299 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6E09D38D2CAED902008930A4 /* PlayInfo */,
-				6E09D3882CAEBB2B008930A4 /* DesignSelection */,
+				B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */,
+				6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */,
+				6E7CAD4E2CB0261A0061A047 /* GameViewController.swift */,
+				6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */,
+				B5E56F742CAC6C5600A2C6ED /* SettingGameViewcontroller.swift */,
+				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,9 +74,6 @@
 		6E52FC322CAD49ED0014D299 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6E7CAD4E2CB0261A0061A047 /* GameViewController.swift */,
-				6E09D38E2CAED917008930A4 /* SettingsGame */,
-				6E52FC3A2CAD4BA50014D299 /* PlayInfo */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,48 +81,21 @@
 		6E52FC332CAD49FC0014D299 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6E52FC342CAD4A060014D299 /* UIKit */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		6E52FC342CAD4A060014D299 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
+				6E52FC3B2CAD4BDE0014D299 /* RoundView.swift */,
+				6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */,
+				B52AD3232CAB21DE004F870B /* Constants.swift */,
 				6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */,
 			);
-			path = UIKit;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6E52FC352CAD4A230014D299 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
+				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		6E52FC3A2CAD4BA50014D299 /* PlayInfo */ = {
-			isa = PBXGroup;
-			children = (
-				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
-			);
-			path = PlayInfo;
-			sourceTree = "<group>";
-		};
-		B52AD31F2CAB1E0B004F870B /* SelectGame */ = {
-			isa = PBXGroup;
-			children = (
-				B52AD31D2CAB1DF6004F870B /* SelectGameViewController.swift */,
-			);
-			path = SelectGame;
-			sourceTree = "<group>";
-		};
-		B52AD3222CAB21AA004F870B /* Helpres */ = {
-			isa = PBXGroup;
-			children = (
-				B52AD3232CAB21DE004F870B /* Constants.swift */,
-			);
-			path = Helpres;
 			sourceTree = "<group>";
 		};
 		B5552B652CA99F63008FA7B2 = {
@@ -175,29 +117,15 @@
 		B5552B702CA99F63008FA7B2 /* Tic-Tac-Toe */ = {
 			isa = PBXGroup;
 			children = (
-				6E52FC2F2CAD49CE0014D299 /* Application */,
 				6E52FC302CAD49DA0014D299 /* Model */,
 				6E52FC312CAD49E40014D299 /* View */,
 				6E52FC322CAD49ED0014D299 /* Controller */,
 				6E52FC332CAD49FC0014D299 /* Extensions */,
 				6E52FC352CAD4A230014D299 /* Resources */,
-				B5552B712CA99F63008FA7B2 /* AppDelegate.swift */,
-				B5552B732CA99F63008FA7B2 /* SceneDelegate.swift */,
-				B52AD31F2CAB1E0B004F870B /* SelectGame */,
-				B5E56F762CAC6C6400A2C6ED /* SettingGame */,
-				B52AD3222CAB21AA004F870B /* Helpres */,
 				B5552B7A2CA99F66008FA7B2 /* Assets.xcassets */,
 				B5552B7F2CA99F66008FA7B2 /* Info.plist */,
 			);
 			path = "Tic-Tac-Toe";
-			sourceTree = "<group>";
-		};
-		B5E56F762CAC6C6400A2C6ED /* SettingGame */ = {
-			isa = PBXGroup;
-			children = (
-				B5E56F742CAC6C5600A2C6ED /* SettingGameViewcontroller.swift */,
-			);
-			path = SettingGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
