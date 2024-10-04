@@ -15,6 +15,8 @@ class RoundView: UIView {
         label.text = "Some text"
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
     
@@ -40,6 +42,11 @@ class RoundView: UIView {
         
         addSubview(numberLabel)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = min(bounds.height, bounds.width) * 0.5
+    }
 }
 
 extension RoundView {
@@ -48,7 +55,9 @@ extension RoundView {
             numberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
             numberLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
             numberLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            numberLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12)
+            numberLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            
+            self.widthAnchor.constraint(equalTo: self.heightAnchor)
         ])
     }
 }
