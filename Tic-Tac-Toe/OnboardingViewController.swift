@@ -109,6 +109,7 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - Button Action
     @objc private func buttonTapped() {
+    
         print("Кнопка нажата!")
     }
     
