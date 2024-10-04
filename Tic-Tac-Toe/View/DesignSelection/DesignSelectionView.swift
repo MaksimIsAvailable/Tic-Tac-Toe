@@ -13,7 +13,6 @@ class DesignSelectionView: UIView {
     
     lazy var leftImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.frame.size = CGSize(width: 54, height: 53)
         imageView.image = UIImage(named: "pinkXIcon")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +21,6 @@ class DesignSelectionView: UIView {
     
     lazy var rightImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.frame.size = CGSize(width: 54, height: 53)
         imageView.image = UIImage(named: "purpleOIcon")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,15 +28,15 @@ class DesignSelectionView: UIView {
     }()
     
     var horizontalStackView = UIStackView()
+    private var isButtonSelected = false
     
     private let designSelectionButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor(named: "backgroundColor")
         button.layer.cornerRadius = 20
-        button.setTitle("Picked", for: .normal)
+        button.setTitle("Choose", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16.0, weight: .semibold)
-//        button.titleLabel?.font = .robotoBold20()
-//        button.tintColor = .specialGreen
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
@@ -50,6 +48,9 @@ class DesignSelectionView: UIView {
         super.init(frame: frame)
         
         layer.cornerRadius = 30
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 20
         translatesAutoresizingMaskIntoConstraints = false
         
         leftImageView.image = UIImage(named: leftImageNamed)
@@ -63,8 +64,8 @@ class DesignSelectionView: UIView {
             axis: .horizontal,
             spacing: 4,
             alignment: .top
+            
         )
-        
         setupView()
         setConstraints()
     }
@@ -74,26 +75,38 @@ class DesignSelectionView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = #colorLiteral(red: 0.9205804467, green: 0.936465919, blue: 1, alpha: 1)
+        backgroundColor = .white
         
         addSubview(horizontalStackView)
         addSubview(designSelectionButton)
     }
     
-    @objc private func buttonTapped() {}
+    @objc private func buttonTapped() {
+        isButtonSelected.toggle()
+        
+            if isButtonSelected {
+                designSelectionButton.setTitle("Choose", for: .normal)
+                designSelectionButton.backgroundColor = K.backgroundColor
+                designSelectionButton.setTitleColor(.black, for: .normal)
+            } else {
+                designSelectionButton.setTitle("Pick", for: .normal)
+                designSelectionButton.backgroundColor = UIColor(named: "buttonColor")
+                designSelectionButton.setTitleColor(.white, for: .normal)
+            }
+    }
 }
 
 extension DesignSelectionView {
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: K.Size.sideConstraint),
+            horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -K.Size.sideConstraint),
+            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: K.Size.sideConstraint),
             
-            designSelectionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            designSelectionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            designSelectionButton.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 18),
-            designSelectionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            designSelectionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: K.Size.sideConstraint),
+            designSelectionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -K.Size.sideConstraint),
+            designSelectionButton.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: K.Size.sideConstraint),
+            designSelectionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -K.Size.sideConstraint),
             designSelectionButton.heightAnchor.constraint(equalToConstant: 39)
         ])
     }

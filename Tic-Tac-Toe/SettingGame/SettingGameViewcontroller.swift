@@ -10,6 +10,12 @@ import UIKit
 
 final class SettingGameViewcontroller: UIViewController {
     
+    var firstHorizontalStackView = UIStackView()
+    var secondHorizontalStackView = UIStackView()
+    var thidrHorizontalStackView = UIStackView()
+    private let gameTimes = [2, 3, 4]
+   
+    
     // MARK: - UI
     private lazy var backButton: UIButton = {
         let element = UIButton()
@@ -96,8 +102,16 @@ final class SettingGameViewcontroller: UIViewController {
         return element
     }()
     
-    private let gameTimes = [2, 3, 4]
-
+    private lazy var designsStackView: UIStackView = {
+        let element = UIStackView()
+        element.axis = .vertical
+        element.spacing = 20
+        element.distribution = .fillEqually
+        element.alignment = .center
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +134,62 @@ final class SettingGameViewcontroller: UIViewController {
         durationView.addSubview(timeForGameValueLabel)
         durationView.addSubview(timeForGameArrow)
         
+        firstHorizontalStackView = UIStackView(
+            arrangedSubviews: [
+                DesignSelectionView(
+                    frame: CGRect.zero,
+                    leftImageNamed: "pinkXIcon",
+                    rightImageNamed: "purpleOIcon"),
+                DesignSelectionView(
+                    frame: CGRect.zero,
+                    leftImageNamed: "yellowXIcon",
+                    rightImageNamed: "greenOIcon")
+            ],
+            axis: .horizontal,
+            spacing: 20,
+            alignment: .top)
+        firstHorizontalStackView.distribution = .fillEqually
+        view.addSubview(firstHorizontalStackView)
+        
+        secondHorizontalStackView = UIStackView(
+            arrangedSubviews: [
+                DesignSelectionView(
+                    frame: CGRect.zero,
+                    leftImageNamed: "circleXIcon",
+                    rightImageNamed: "circleOIcon"),
+                DesignSelectionView(
+                    frame: CGRect.zero,
+                    leftImageNamed: "starIcon",
+                    rightImageNamed: "heartIcon")
+            ],
+            axis: .horizontal,
+            spacing: 20,
+            alignment: .top)
+        firstHorizontalStackView.distribution = .fillEqually
+        view.addSubview(secondHorizontalStackView)
+        
+        thidrHorizontalStackView = UIStackView(
+            arrangedSubviews: [
+                DesignSelectionView(
+                    frame: CGRect.zero,
+                    leftImageNamed: "cakeIcon",
+                    rightImageNamed: "icecreamIcon"),
+                DesignSelectionView(
+                    frame: CGRect.zero,
+                    leftImageNamed: "burgerIcon",
+                    rightImageNamed: "potatoesIcon")
+            ],
+            axis: .horizontal,
+            spacing: 20,
+            alignment: .top)
+        firstHorizontalStackView.distribution = .fillEqually
+        view.addSubview(thidrHorizontalStackView)
+        
+        view.addSubview(designsStackView)
+        
+        designsStackView.addArrangedSubview(firstHorizontalStackView)
+        designsStackView.addArrangedSubview(secondHorizontalStackView)
+        designsStackView.addArrangedSubview(thidrHorizontalStackView)
     }
     
     //MARK: - Actions
@@ -129,24 +199,22 @@ final class SettingGameViewcontroller: UIViewController {
     
     @objc private func gameTimeSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
-            // Показываем durationView
             showDurationView()
         } else {
-            // Скрываем durationView
             hideDurationView()
         }
         
         func showDurationView() {
             UIView.animate(withDuration: 0.3) { [weak self] in
                 self?.durationView.isHidden = false
-                self?.view.layoutIfNeeded()  // Обновляем интерфейс
+                self?.view.layoutIfNeeded()
             }
         }
 
         func hideDurationView() {
             UIView.animate(withDuration: 0.3) { [weak self] in
                 self?.durationView.isHidden = true
-                self?.view.layoutIfNeeded()  // Обновляем интерфейс
+                self?.view.layoutIfNeeded()
             }
         }
     }
@@ -162,11 +230,9 @@ final class SettingGameViewcontroller: UIViewController {
             let timeMenu = UIMenu(title: "", options: .displayInline, children: menuActions)
             timeForGameArrow.menu = timeMenu
         }
-    
 }
 
 //MARK: - Setup Constraints
-
 extension SettingGameViewcontroller {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -179,11 +245,9 @@ extension SettingGameViewcontroller {
             gameTimeStacView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: K.Size.sideConstraint),
             gameTimeStacView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -K.Size.sideConstraint),
             
-            
             gameTimeView.leadingAnchor.constraint(equalTo: gameTimeStacView.leadingAnchor, constant: K.Size.sideConstraint),
             gameTimeView.trailingAnchor.constraint(equalTo: gameTimeStacView.trailingAnchor, constant: -K.Size.sideConstraint),
             gameTimeView.topAnchor.constraint(equalTo: gameTimeStacView.topAnchor, constant: K.Size.sideConstraint),
-            gameTimeView.heightAnchor.constraint(equalToConstant: 70),
             
             gameTimeLabel.leadingAnchor.constraint(equalTo: gameTimeView.leadingAnchor, constant: K.Size.sideConstraint),
             gameTimeLabel.topAnchor.constraint(equalTo: gameTimeView.topAnchor, constant: K.Size.sideConstraint),
@@ -207,7 +271,10 @@ extension SettingGameViewcontroller {
             timeForGameArrow.trailingAnchor.constraint(equalTo: durationView.trailingAnchor, constant: -K.Size.sideConstraint),
             timeForGameArrow.topAnchor.constraint(equalTo: durationView.topAnchor, constant: K.Size.sideConstraint),
             timeForGameArrow.centerYAnchor.constraint(equalTo: durationView.centerYAnchor),
-
+            
+            designsStackView.topAnchor.constraint(equalTo: gameTimeStacView.bottomAnchor, constant: K.Size.sideConstraint),
+            designsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: K.Size.sideConstraint),
+            designsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -K.Size.sideConstraint),
         ])
     }
 }

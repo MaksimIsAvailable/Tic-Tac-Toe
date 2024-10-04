@@ -133,8 +133,6 @@ extension SelectGameViewController {
             twoPlayersButton.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor, constant: K.Size.sideConstraint),
             twoPlayersButton.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor, constant: -K.Size.sideConstraint),
             twoPlayersButton.heightAnchor.constraint(equalToConstant: K.Size.height),
-            
-            
         ])
     }
 }
