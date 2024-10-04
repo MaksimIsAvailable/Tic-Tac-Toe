@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31F988702CB09067008B4517 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F9886F2CB09067008B4517 /* OnboardingViewController.swift */; };
+		31F988722CB09083008B4517 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F988712CB09083008B4517 /* UIButton.swift */; };
 		6E09D38A2CAEBB73008930A4 /* DesignSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */; };
 		6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */; };
 		6E52FC372CAD4A470014D299 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31F9886F2CB09067008B4517 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		31F988712CB09083008B4517 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		6E09D3892CAEBB73008930A4 /* DesignSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSelectionView.swift; sourceTree = "<group>"; };
 		6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameViewController.swift; sourceTree = "<group>"; };
 		6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				6E09D38F2CAED94B008930A4 /* SettingsGameViewController.swift */,
 				B5E56F742CAC6C5600A2C6ED /* SettingGameViewcontroller.swift */,
 				6E52FC382CAD4B350014D299 /* PlayInfoViewController.swift */,
+				31F9886F2CB09067008B4517 /* OnboardingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 				6E52FC3E2CAD4C0B0014D299 /* RectangleView.swift */,
 				B52AD3232CAB21DE004F870B /* Constants.swift */,
 				6E52FC362CAD4A470014D299 /* UIStackView+Extensions.swift */,
+				31F988712CB09083008B4517 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F988702CB09067008B4517 /* OnboardingViewController.swift in Sources */,
 				B52AD3242CAB21DE004F870B /* Constants.swift in Sources */,
 				B5E56F752CAC6C5700A2C6ED /* SettingGameViewcontroller.swift in Sources */,
 				6E09D38A2CAEBB73008930A4 /* DesignSelectionView.swift in Sources */,
@@ -207,6 +214,7 @@
 				6E09D3902CAED94B008930A4 /* SettingsGameViewController.swift in Sources */,
 				6E52FC392CAD4B350014D299 /* PlayInfoViewController.swift in Sources */,
 				6E52FC3F2CAD4C0B0014D299 /* RectangleView.swift in Sources */,
+				31F988722CB09083008B4517 /* UIButton.swift in Sources */,
 				B52AD31E2CAB1DF6004F870B /* SelectGameViewController.swift in Sources */,
 				B5552B742CA99F63008FA7B2 /* SceneDelegate.swift in Sources */,
 			);
