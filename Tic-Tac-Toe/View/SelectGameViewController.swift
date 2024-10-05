@@ -126,12 +126,14 @@ final class SelectGameViewController: UIViewController {
     
     @objc private func getSinglePlayerTapped() {
         let nextViewController = GameViewController()
+        nextViewController.isSinglePlayer = true
         navigationController?.pushViewController(nextViewController, animated: true)
         print("Single Player Tapped")
     }
     
     @objc private func getTwoPlayersTapped() {
         let nextViewController = GameViewController()
+        nextViewController.isSinglePlayer = false
         navigationController?.pushViewController(nextViewController, animated: true)
         print("Two Players Tapped")
     }
