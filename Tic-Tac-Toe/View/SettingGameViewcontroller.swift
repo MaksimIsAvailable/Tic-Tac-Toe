@@ -14,11 +14,18 @@ final class SettingGameViewcontroller: UIViewController {
     private lazy var backButton: UIButton = {
         let element = UIButton()
         element.setImage(K.backIcon, for: .normal)
-        element.addTarget(self, action: #selector(getBackButtonTapped), for: .touchUpInside)
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.translatesAutoresizingMaskIntoConstraints = false
+        element.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+        let customBackButton = UIBarButtonItem(customView: element)
+        navigationItem.leftBarButtonItem = customBackButton
+        
         return element
     }()
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
     
     private lazy var gameTimeStacView: UIStackView = {
         let element = UIStackView()
@@ -123,9 +130,6 @@ final class SettingGameViewcontroller: UIViewController {
     }
     
     //MARK: - Actions
-    @objc private func getBackButtonTapped() {
-        print("Back Button Tapped")
-    }
     
     @objc private func gameTimeSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
@@ -170,12 +174,10 @@ final class SettingGameViewcontroller: UIViewController {
 extension SettingGameViewcontroller {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: K.Size.sideConstraint),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: K.Size.sideConstraint),
             backButton.widthAnchor.constraint(equalToConstant: 30),
             backButton.heightAnchor.constraint(equalToConstant: 22),
             
-            gameTimeStacView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: K.Size.sideConstraint),
+            gameTimeStacView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             gameTimeStacView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: K.Size.sideConstraint),
             gameTimeStacView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -K.Size.sideConstraint),
             
