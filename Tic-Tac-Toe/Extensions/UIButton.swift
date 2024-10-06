@@ -13,6 +13,6 @@ extension UIButton {
         self.contentMode = .scaleAspectFit
         self.setImage(UIImage(named: name), for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
     }
 }
