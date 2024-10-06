@@ -11,11 +11,31 @@ import UIKit
 final class SelectGameViewController: UIViewController {
     
     // MARK: - UI
+    private lazy var backButton: UIButton = {
+        let element = UIButton()
+        element.setImage(K.backIcon, for: .normal)
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+        let customBackButton = UIBarButtonItem(customView: element)
+        navigationItem.leftBarButtonItem = customBackButton
+        
+        return element
+    }()
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private lazy var settingButton: UIButton = {
         let element = UIButton()
         element.setImage(K.settingIcon, for: .normal)
         element.addTarget(self, action: #selector(getSettingButtonTapped), for: .touchUpInside)
         element.translatesAutoresizingMaskIntoConstraints = false
+        
+        let customBackButton = UIBarButtonItem(customView: element)
+        navigationItem.rightBarButtonItem = customBackButton
+        
         return element
     }()
     
@@ -81,12 +101,12 @@ final class SelectGameViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = K.backgroundColor
         setViews()
         setupConstraints()
     }
     //MARK: - Set Views
     private func setViews() {
-        view.backgroundColor = K.backgroundColor
         
         view.addSubview(settingButton)
         view.addSubview(mainStackView)
@@ -99,14 +119,22 @@ final class SelectGameViewController: UIViewController {
     
     //MARK: - Actions
     @objc private func getSettingButtonTapped() {
+        let nextViewController = SettingGameViewcontroller()
+        navigationController?.pushViewController(nextViewController, animated: true)
         print("Setting Button Tapped")
     }
     
     @objc private func getSinglePlayerTapped() {
+        let nextViewController = GameViewController()
+        nextViewController.isSinglePlayer = true
+        navigationController?.pushViewController(nextViewController, animated: true)
         print("Single Player Tapped")
     }
     
     @objc private func getTwoPlayersTapped() {
+        let nextViewController = GameViewController()
+        nextViewController.isSinglePlayer = false
+        navigationController?.pushViewController(nextViewController, animated: true)
         print("Two Players Tapped")
     }
 }
@@ -116,6 +144,9 @@ final class SelectGameViewController: UIViewController {
 extension SelectGameViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 22),
+            
             settingButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: K.Size.sideConstraint),
             settingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -K.Size.sideConstraint),
             settingButton.widthAnchor.constraint(equalToConstant: 38),
