@@ -8,6 +8,25 @@
 import UIKit
 
 class GameViewController: UIViewController {
+        
+//    var imageX = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2]
+//    var imageO = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2 + 1]
+
+    
+//    var images = UserDefaults.standard.array(forKey: "selectedIcons") as? [String?]
+    func imageX() -> String {
+        let images = UserDefaults.standard.stringArray(forKey: "selectedIcons")
+        return images![0]
+    }
+    
+    func imageO() -> String {
+        let images = UserDefaults.standard.stringArray(forKey: "selectedIcons")
+        return images![1]
+    }
+    
+//    var images = UserDefaults.standard.stringArray(forKey: "selectedIcons")
+//    var imageX = images![0]
+//    var imageO = images![1]
     
     var isPlayerOneTurn = true
     var isSinglePlayer: Bool = false
@@ -47,7 +66,7 @@ class GameViewController: UIViewController {
     
     private lazy var firstPlayerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "pinkXIcon")
+        imageView.image = UIImage(named: imageX())
         imageView.contentMode = .scaleAspectFit
         firstPlayer.addSubview(imageView)
         return imageView
@@ -72,7 +91,7 @@ class GameViewController: UIViewController {
     
     private lazy var secondPlayerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "purpleOIcon")
+        imageView.image = UIImage(named: imageO())
         imageView.contentMode = .scaleAspectFit
         secondPlayer.addSubview(imageView)
         return imageView
@@ -146,7 +165,7 @@ class GameViewController: UIViewController {
         if squareView.subviews.count > 0 { return }
         
         if isPlayerOneTurn {
-            squareView.addImageToSquare(imageName: "pinkXIcon")  //функцию для отрисовки изображения вынес в Ext
+            squareView.addImageToSquare(imageName: imageX())  //функцию для отрисовки изображения вынес в Ext
             squareView.isUserInteractionEnabled = false
             if checkForWinner() {
                 navigateToResultScreen(result: .playerOne)
@@ -160,7 +179,7 @@ class GameViewController: UIViewController {
             
             
         } else {
-            squareView.addImageToSquare(imageName: "purpleOIcon")
+            squareView.addImageToSquare(imageName: imageO())
             squareView.isUserInteractionEnabled = false
             if checkForWinner() {
                 navigateToResultScreen(result: .playerTwo)
@@ -176,7 +195,7 @@ class GameViewController: UIViewController {
         let emptySquares = gamePole.subviews.filter { $0.subviews.isEmpty && $0.isUserInteractionEnabled }
         
         if let randomSquare = emptySquares.randomElement() {
-            randomSquare.addImageToSquare(imageName: "purpleOIcon")
+            randomSquare.addImageToSquare(imageName: imageO())
             randomSquare.isUserInteractionEnabled = false
             if checkForWinner() {
                 navigateToResultScreen(result: .playerTwo)

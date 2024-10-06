@@ -19,7 +19,7 @@ struct K {
     
     struct Size {
         static let sideConstraint: CGFloat = 20
-        static let height: CGFloat = 70
+        static let height: CGFloat = 50
         static let mainStacSide: CGFloat = 52
     }
     

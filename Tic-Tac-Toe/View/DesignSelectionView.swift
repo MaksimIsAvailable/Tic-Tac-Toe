@@ -7,14 +7,24 @@
 
 import UIKit
 
+
+
 class DesignSelectionView: UIView {
     var leftImageNamed: String
     var rightImageNamed: String
     
+//    var imageX = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2]
+//    var imageO = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2 + 1]
+    
+    var images = UserDefaults.standard.array(forKey: "selectedIcons") as? [String?]
+
+    var imageX = "pinkXIcon"
+    var imageO = "purpleOIcon"
+    
     lazy var leftImageView: UIImageView = {
         let imageView = UIImageView()
 //        imageView.frame.size = CGSize(width: 54, height: 53)
-        imageView.image = UIImage(named: "pinkXIcon")
+        imageView.image = UIImage(named: imageX)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -23,7 +33,7 @@ class DesignSelectionView: UIView {
     lazy var rightImageView: UIImageView = {
         let imageView = UIImageView()
 //        imageView.frame.size = CGSize(width: 54, height: 53)
-        imageView.image = UIImage(named: "purpleOIcon")
+        imageView.image = UIImage(named: imageO)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
