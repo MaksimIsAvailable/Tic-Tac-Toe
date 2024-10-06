@@ -111,18 +111,15 @@ class OnboardingViewController: UIViewController {
     @objc private func startGameButton() {
         let nextViewController = SelectGameViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
-        print("Кнопка нажата!")
     }
     
     @objc private func infoGameTapped() {
         let nextViewController = PlayInfoViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
-        print("Кнопка нажата!")
     }
     
     @objc private func settingButtonTapped() {
         let nextViewController = SettingGameViewcontroller()
         navigationController?.pushViewController(nextViewController, animated: true)
-        print("Кнопка нажата!")
     }
 }

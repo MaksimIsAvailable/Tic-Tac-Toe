@@ -149,7 +149,7 @@ class GameViewController: UIViewController {
             squareView.addImageToSquare(imageName: "pinkXIcon")  //функцию для отрисовки изображения вынес в Ext
             squareView.isUserInteractionEnabled = false
             if checkForWinner() {
-                navigateToResultScreen()
+                navigateToResultScreen(result: .playerOne)
             } else {
                 isPlayerOneTurn.toggle()
                 if isSinglePlayer {
@@ -163,7 +163,7 @@ class GameViewController: UIViewController {
             squareView.addImageToSquare(imageName: "purpleOIcon")
             squareView.isUserInteractionEnabled = false
             if checkForWinner() {
-                navigateToResultScreen()
+                navigateToResultScreen(result: .playerTwo)
             }
             isPlayerOneTurn.toggle()
         }
@@ -179,7 +179,7 @@ class GameViewController: UIViewController {
             randomSquare.addImageToSquare(imageName: "purpleOIcon")
             randomSquare.isUserInteractionEnabled = false
             if checkForWinner() {
-                navigateToResultScreen()
+                navigateToResultScreen(result: .playerTwo)
             } else {
                 isPlayerOneTurn.toggle()
             }
@@ -216,8 +216,9 @@ class GameViewController: UIViewController {
         return false
     }
     
-    func navigateToResultScreen() {
+    func navigateToResultScreen(result: GameResult) {
         let resultViewController = ResultViewController()
+        resultViewController.result = result 
         navigationController?.pushViewController(resultViewController, animated: true)
     }
 }

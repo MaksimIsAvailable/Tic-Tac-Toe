@@ -1,16 +1,16 @@
 
 import UIKit
 
-enum TypeResult {
-    case win
-    case lose
+enum GameResult {
+    case playerOne
+    case playerTwo
     case draw
 }
 
 class ResultViewController: UIViewController {
     
     // MARK: - UI Elements
-    private var result: TypeResult = .win
+     var result: GameResult = .playerOne
  
     private var screenHeight: CGFloat = 0
     private var screenWidth: CGFloat = 0
@@ -45,7 +45,7 @@ class ResultViewController: UIViewController {
         
         button.layer.cornerRadius = getButtonCornerRadius()
         button.translatesAutoresizingMaskIntoConstraints = false
-
+        button.addTarget(self, action: #selector(getPlayAgainTapped), for: .touchUpInside)
         return button
     }()
     
@@ -59,6 +59,7 @@ class ResultViewController: UIViewController {
         
         button.setTitle("Back", for: .normal)
         button.setTitleColor(UIColor(red: 132/255, green: 128/255, blue: 212/255, alpha: 1), for: .normal)
+        button.addTarget(self, action: #selector(getBackButtonTapped), for: .touchUpInside)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -88,13 +89,14 @@ class ResultViewController: UIViewController {
     
     // MARK: - Lifecycle Methods
     
-   convenience init(result: TypeResult) {
+   convenience init(result: GameResult) {
        self.init()
        self.result = result
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         getScreenSize()
         setupUI()
         setResult()
@@ -171,10 +173,10 @@ class ResultViewController: UIViewController {
     
     private func setResult() {
         switch result {
-        case .win:
+        case .playerOne:
             titleLabel.text = "Player One win!"
             imageView.image = UIImage(named: "winIcon")
-        case .lose:
+        case .playerTwo:
             titleLabel.text = "You Lose!"
             imageView.image = UIImage(named: "loseIcon")
         case .draw:
@@ -192,8 +194,13 @@ class ResultViewController: UIViewController {
     }
     
     // MARK: - Button Action
-    @objc private func buttonTapped() {
-        print("Кнопка нажата!")
+    @objc private func getPlayAgainTapped() {
+        let nextViewController = SelectGameViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc private func getBackButtonTapped() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
