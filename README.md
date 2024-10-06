@@ -20,4 +20,7 @@ ______________
  - [Alex]([https://github.com/ShapovalovIlya](https://github.com/alexSoftDeveloper))
  - [Vladimir]([https://github.com/s9888556](https://github.com/vvp-off))
 
-![our app]()
+![our app](https://github.com/MaksimIsAvailable/Tic-Tac-Toe/blob/main/Снимок%20экрана%202024-10-06%20в%2013.56.29.png) 
+![our app](https://github.com/MaksimIsAvailable/Tic-Tac-Toe/blob/main/Снимок%20экрана%202024-10-06%20в%2013.56.42.png) 
+![our app](https://github.com/MaksimIsAvailable/Tic-Tac-Toe/blob/main/Снимок%20экрана%202024-10-06%20в%2013.57.02.png)
+
