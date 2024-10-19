@@ -25,9 +25,15 @@ final class SettingGameViewcontroller: UIViewController {
     
     var selectedButtonIndex = 0
     
+    var switchTimeOnOff = false
+    var durationViewStatus = true
+    
     var buttons: [UIButton] = [] //первая кнопка не сбрасывалась
     
     var selectedIcons: [String] = []
+    
+    var selectedDurationButton: UIButton? = nil
+    
     let imageNames = [
            "pinkXIcon", "purpleOIcon",
            "circleXIcon", "circleOIcon",
@@ -153,29 +159,34 @@ final class SettingGameViewcontroller: UIViewController {
                     selectedIcons.append(selectedSecondIcon)
                 }
                    
-           saveImages()
+           saveSettings()
            print("Selected icons: \(selectedIcons)  \(selectedIcons.count) , \(selectedButtonIndex)")
 
        }
     
-    func saveImages() {
+    func saveSettings() {
         let defaults = UserDefaults.standard
         defaults.set(selectedIcons, forKey: "selectedIcons")
         defaults.set(selectedButtonIndex, forKey: "selectedButtonIndex")
+//        if let selectedDurationButton = selectedDurationButton {
+//            defaults.set(selectedDurationButton.tag, forKey: "selectedTime")
+//        }
+        
     }
+    
     private func setLowerStackView() {
         view.addSubview(lowerStackView)
         lowerStackView.addArrangedSubview(leftColumnStackView)
         lowerStackView.addArrangedSubview(rightColumnStackView)
         
         // MARK: Добавляем блоки вниз
-               for index in 0..<6 {
-                   if index < 3 {
-                       leftColumnStackView.addArrangedSubview(setCell(index: index))
-                   } else {
-                       rightColumnStackView.addArrangedSubview(setCell(index: index))
-                   }
-               }
+        for index in 0..<6 {
+            if index < 3 {
+                leftColumnStackView.addArrangedSubview(setCell(index: index))
+            } else {
+                rightColumnStackView.addArrangedSubview(setCell(index: index))
+            }
+        }
     }
        
     
@@ -186,7 +197,6 @@ final class SettingGameViewcontroller: UIViewController {
             lowerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 33),
             lowerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -33),
             lowerStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 282),
-//            lowerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -72),
             
         ])
     }
@@ -203,7 +213,6 @@ final class SettingGameViewcontroller: UIViewController {
         element.alignment = .center
         element.distribution = .fillEqually
         element.layer.cornerRadius = 30
-//        element.backgroundColor = .green
         element.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         element.isLayoutMarginsRelativeArrangement = true
         element.layer.shadowColor = UIColor.black.cgColor
@@ -216,7 +225,6 @@ final class SettingGameViewcontroller: UIViewController {
     private lazy var gameTimeView: UIView = {
         let element = UIView()
         element.backgroundColor = .white
-//        K.gameColor
         element.layer.cornerRadius = 30
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -232,7 +240,7 @@ final class SettingGameViewcontroller: UIViewController {
     
     private lazy var gameTimeSwitch: UISwitch = {
         let element = UISwitch()
-        element.isOn = false
+        element.isOn = UserDefaults.standard.bool(forKey: "timerOnOff")
         element.onTintColor = K.buttonColor
         element.addTarget(self, action: #selector(gameTimeSwitchChanged(_:)), for: .valueChanged)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -242,10 +250,12 @@ final class SettingGameViewcontroller: UIViewController {
     private lazy var durationView: UIView = {
         let element = UIView()
         element.backgroundColor = .white
-//        K.gameColor
         element.layer.cornerRadius = 30
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.isHidden = true
+        element.isHidden = durationViewStatus
+        if durationViewStatus != UserDefaults.standard.bool(forKey: "durationViewIsHidden") {
+            element.isHidden = UserDefaults.standard.bool(forKey: "durationViewIsHidden")
+        }
         return element
     }()
     
@@ -259,7 +269,7 @@ final class SettingGameViewcontroller: UIViewController {
     
     private lazy var timeForGameValueLabel: UILabel = {
         let element = UILabel()
-        element.text = "2:00"
+        element.text = UserDefaults.standard.string(forKey: "timeDuration")
         element.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -269,6 +279,7 @@ final class SettingGameViewcontroller: UIViewController {
         let element = UIButton(type: .system)
         let image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysOriginal)
         element.setImage(image, for: .normal)
+        element.addTarget(self, action: #selector(durationButtonTapped), for: .touchUpInside)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.showsMenuAsPrimaryAction = true
         return element
@@ -288,13 +299,12 @@ final class SettingGameViewcontroller: UIViewController {
     private func setViews() {
         
         view.backgroundColor = K.backgroundColor
-        
         view.addSubview(backButton)
         view.addSubview(gameTimeStacView)
         
-//MARK: добавляем дизайн кнопок на экран
+    //MARK: добавляем дизайн кнопок на экран
         setLowerStackView()
-
+        
         gameTimeStacView.addArrangedSubview(gameTimeView)
         gameTimeStacView.addArrangedSubview(durationView)
         gameTimeView.addSubview(gameTimeLabel)
@@ -302,21 +312,40 @@ final class SettingGameViewcontroller: UIViewController {
         gameTimeView.addSubview(gameTimeSwitch)
         durationView.addSubview(timeForGameValueLabel)
         durationView.addSubview(timeForGameArrow)
-        
-        
-        
-        
+    
     }
     
     //MARK: - Actions
     
+    @objc func switchValueChanged(_ sender: UISwitch) {
+            UserDefaults.standard.set(sender.isOn, forKey: "timerOnOff")
+            UserDefaults.standard.set(!sender.isOn, forKey: "durationViewIsHidden")
+        }
+
+    @objc func durationButtonTapped(_ sender: UIButton) {
+        if let previousSelectedButton = selectedDurationButton {
+            previousSelectedButton.backgroundColor = .clear
+            previousSelectedButton.setTitleColor(.black, for: .normal)
+        }
+            
+        sender.backgroundColor = UIColor(red: 0.835, green: 0.757, blue: 0.965, alpha: 1)
+            
+        selectedDurationButton = sender
+        
+    }
+    
+    
+    
     @objc private func gameTimeSwitchChanged(_ sender: UISwitch) {
+
         if sender.isOn {
             // Показываем durationView
             showDurationView()
+            switchValueChanged(sender)
         } else {
             // Скрываем durationView
             hideDurationView()
+            switchValueChanged(sender)
         }
         
         func showDurationView() {
@@ -339,11 +368,15 @@ final class SettingGameViewcontroller: UIViewController {
             let menuActions = gameTimes.map { time in
                 UIAction(title: "\(time):00") { [weak self] _ in
                     self?.timeForGameValueLabel.text = "\(time):00"
+                    
+                    UserDefaults.standard.set(self?.timeForGameValueLabel.text, forKey: "timeDuration")
+                    UserDefaults.standard.set(time, forKey: "timeForTimer")
                 }
             }
-            
+        
             let timeMenu = UIMenu(title: "", options: .displayInline, children: menuActions)
             timeForGameArrow.menu = timeMenu
+
         }
     
 }

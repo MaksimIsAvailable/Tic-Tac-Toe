@@ -13,8 +13,6 @@ class DesignSelectionView: UIView {
     var leftImageNamed: String
     var rightImageNamed: String
     
-//    var imageX = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2]
-//    var imageO = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2 + 1]
     
     var images = UserDefaults.standard.array(forKey: "selectedIcons") as? [String?]
 

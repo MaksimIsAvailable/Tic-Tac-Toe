@@ -9,11 +9,6 @@ import UIKit
 
 class GameViewController: UIViewController {
         
-//    var imageX = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2]
-//    var imageO = storeManager.imageNames[currentDesingImage.integer(forKey: "Picked") * 2 + 1]
-
-    
-//    var images = UserDefaults.standard.array(forKey: "selectedIcons") as? [String?]
     func imageX() -> String {
         let images = UserDefaults.standard.stringArray(forKey: "selectedIcons")
         return images![0]
@@ -23,10 +18,6 @@ class GameViewController: UIViewController {
         let images = UserDefaults.standard.stringArray(forKey: "selectedIcons")
         return images![1]
     }
-    
-//    var images = UserDefaults.standard.stringArray(forKey: "selectedIcons")
-//    var imageX = images![0]
-//    var imageO = images![1]
     
     var isPlayerOneTurn = true
     var isSinglePlayer: Bool = false
